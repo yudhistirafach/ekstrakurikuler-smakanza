@@ -1,15 +1,15 @@
 <footer
-    class="w-full border-t border-[#e7ecf4] bg-white pt-16 pb-8 text-[#0d131c] dark:border-gray-800 dark:bg-[#151c2a] dark:text-gray-300">
+    class="w-full border-t border-[#e7ecf4] bg-white pt-16 pb-8 text-[#0d131c] dark:border-gray-800 dark:bg-[#151c2a] dark:text-gray-300 z-10">
     <div class="layout-container flex justify-center px-4 md:px-10">
-        <div class="flex w-full max-w-[1280px] flex-col gap-10">
-            <div class="grid grid-cols-1 gap-10 md:grid-cols-4">
+        <div class="flex w-full max-w-[1280px] flex-col gap-10 justify-around">
+            <div class="grid grid-cols-1 gap-10 md:grid-cols-3">
                 <!-- Brand -->
                 <div class="col-span-1 md:col-span-1">
                     <div class="mb-4 flex items-center gap-2">
                         <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
                             <span class="material-symbols-outlined text-lg">school</span>
                         </div>
-                        <h3 class="text-lg font-bold text-[#0d131c] dark:text-white">EkstraSMEA</h3>
+                        <h3 class="text-lg font-bold text-[#0d131c] dark:text-white">EkstraSMAKANZA</h3>
                     </div>
                     <p class="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
                         Platform manajemen ekstrakurikuler resmi SMK Negeri 1 Wonosobo. Mewujudkan siswa
@@ -21,24 +21,12 @@
                     <h4 class="mb-4 text-sm font-bold uppercase tracking-wider text-[#0d131c] dark:text-white">
                         Menu Utama</h4>
                     <ul class="flex flex-col gap-3 text-sm text-gray-500 dark:text-gray-400">
-                        <li><a class="hover:text-primary transition-colors" href="#">Beranda</a></li>
-                        <li><a class="hover:text-primary transition-colors" href="#">Ekstrakurikuler</a>
+                        <li><a class="hover:text-primary transition-colors" href="{{ route('home') }}">Beranda</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="{{ route('ekstrakurikuler') }}">Ekstrakurikuler</a>
                         </li>
-                        <li><a class="hover:text-primary transition-colors" href="#">Jadwal Latihan</a>
+                        <li><a class="hover:text-primary transition-colors" href="{{ route('prestasi') }}">Prestasi</a>
                         </li>
-                        <li><a class="hover:text-primary transition-colors" href="#">Galeri Kegiatan</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Links 2 -->
-                <div>
-                    <h4 class="mb-4 text-sm font-bold uppercase tracking-wider text-[#0d131c] dark:text-white">
-                        Bantuan</h4>
-                    <ul class="flex flex-col gap-3 text-sm text-gray-500 dark:text-gray-400">
-                        <li><a class="hover:text-primary transition-colors" href="#">Panduan
-                                Pendaftaran</a></li>
-                        <li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
-                        <li><a class="hover:text-primary transition-colors" href="#">Kontak Admin</a>
+                        <li><a class="hover:text-primary transition-colors" href="{{ route('daftar-ekstra') }}">Daftar Ekstra</a>
                         </li>
                     </ul>
                 </div>

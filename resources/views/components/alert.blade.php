@@ -31,7 +31,7 @@
 @endphp
 
 @if($show)
-<div class="fixed top-6 right-6 z-[60] toast-animate max-w-sm w-full bg-white dark:bg-slate-800 shadow-xl rounded-lg overflow-hidden border border-slate-100 dark:border-slate-700">
+<div id="alert-toast" class="fixed top-6 right-6 z-[60] toast-animate max-w-sm w-full bg-white dark:bg-slate-800 shadow-xl rounded-lg overflow-hidden border border-slate-100 dark:border-slate-700">
     <div class="p-4 flex gap-3 items-start">
         <div class="shrink-0">
             <div class="h-8 w-8 rounded-full {{ $config['bg'] }} flex items-center justify-center {{ $config['text'] }}">
@@ -50,7 +50,7 @@
             </p>
         </div>
 
-        <button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+        <button onclick="closeAlert()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
             <span class="material-symbols-outlined text-[18px]">close</span>
         </button>
     </div>
@@ -60,4 +60,15 @@
         <div class="h-full {{ $config['bar'] }} animate-progress w-full"></div>
     </div>
 </div>
+
+<script>
+    function closeAlert() {
+        document.getElementById('alert-toast').style.display = 'none';
+    }
+
+    // Auto close after 5 seconds
+    setTimeout(() => {
+        closeAlert();
+    }, 3000);
+</script>
 @endif

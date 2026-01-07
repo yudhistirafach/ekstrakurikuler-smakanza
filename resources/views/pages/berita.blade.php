@@ -60,42 +60,7 @@
             class="sticky top-16 z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm py-2 -mx-4 px-4 sm:mx-0 sm:px-0">
             <div class="flex flex-col lg:flex-row gap-4 justify-between items-start lg:items-center p-1 rounded-xl">
                 <!-- Chips -->
-                <div class="flex gap-2 overflow-x-auto pb-2 lg:pb-0 w-full lg:w-auto no-scrollbar mask-linear-fade">
-                    <button
-                        class="whitespace-nowrap px-4 py-2 rounded-lg bg-primary text-white text-sm font-semibold shadow-sm shadow-blue-500/30 transition-all hover:bg-blue-600">
-                        Semua Berita
-                    </button>
-                    <button
-                        class="whitespace-nowrap px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
-                        Pramuka
-                    </button>
-                    <button
-                        class="whitespace-nowrap px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
-                        OSIS
-                    </button>
-                    <button
-                        class="whitespace-nowrap px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
-                        Olahraga
-                    </button>
-                    <button
-                        class="whitespace-nowrap px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
-                        Seni &amp; Budaya
-                    </button>
-                    <button
-                        class="whitespace-nowrap px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
-                        Akademik
-                    </button>
-                </div>
-                <!-- Search -->
-                <div class="relative w-full lg:w-80 shrink-0">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <span class="material-symbols-outlined text-slate-400">search</span>
-                    </div>
-                    <input
-                        class="block w-full pl-10 pr-3 py-2.5 border-none rounded-lg leading-5 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm shadow-sm"
-                        placeholder="Cari berita atau artikel..." type="text" />
-                </div>
-            </div>
+                <x-search-filter-berita />
         </section>
         <!-- Main Content Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -297,48 +262,7 @@
             <!-- Sidebar (Right) -->
             <aside class="lg:col-span-4 space-y-8">
                 <!-- Widget: Trending/Populer -->
-                <div
-                    class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700/50">
-                    <div class="flex items-center gap-2 mb-6 border-b border-slate-100 dark:border-slate-700 pb-4">
-                        <span class="material-symbols-outlined text-red-500">local_fire_department</span>
-                        <h3 class="font-bold text-lg text-slate-900 dark:text-white">Sedang Populer</h3>
-                    </div>
-                    <div class="flex flex-col gap-5">
-                        <a class="group flex gap-4 items-start" href="#">
-                            <span
-                                class="text-2xl font-black text-slate-200 dark:text-slate-700 group-hover:text-primary transition-colors">01</span>
-                            <div>
-                                <h4
-                                    class="font-semibold text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors line-clamp-2">
-                                    Tips Membagi Waktu Antara Belajar dan Organisasi
-                                </h4>
-                                <span class="text-xs text-slate-500 mt-1 block">Tips &amp; Trik</span>
-                            </div>
-                        </a>
-                        <a class="group flex gap-4 items-start" href="#">
-                            <span
-                                class="text-2xl font-black text-slate-200 dark:text-slate-700 group-hover:text-primary transition-colors">02</span>
-                            <div>
-                                <h4
-                                    class="font-semibold text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors line-clamp-2">
-                                    Profil Ketua OSIS Periode 2023/2024
-                                </h4>
-                                <span class="text-xs text-slate-500 mt-1 block">Profil</span>
-                            </div>
-                        </a>
-                        <a class="group flex gap-4 items-start" href="#">
-                            <span
-                                class="text-2xl font-black text-slate-200 dark:text-slate-700 group-hover:text-primary transition-colors">03</span>
-                            <div>
-                                <h4
-                                    class="font-semibold text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors line-clamp-2">
-                                    Daftar Ekstrakurikuler Paling Diminati Tahun Ini
-                                </h4>
-                                <span class="text-xs text-slate-500 mt-1 block">Statistik</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                <x-card-aside-berita />
             </aside>
         </div>
     </main>

@@ -46,10 +46,10 @@
             </div>
             <p class="text-[10px] text-right text-gray-400 dark:text-gray-500 mt-1">{{ $quota_used }}/{{ $quota_total }} Terdaftar</p>
         </div>
-        <button
-            class="w-full py-2.5 bg-primary hover:bg-blue-600 text-white font-medium rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
+        <a  href="{{ route('detail-ekstrakurikuler') }}"
+            class="w-full py-2.5 border border-primary text-primary hover:bg-primary hover:text-white font-medium rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
             <span>Lihat Detail</span>
             <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-        </button>
+        </a>
     </div>
 </div>

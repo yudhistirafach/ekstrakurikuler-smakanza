@@ -22,9 +22,11 @@
         </div>
         <h3 class="mb-2 text-lg font-bold text-[#0d131c] dark:text-white">{{ $title }}</h3>
         <p class="mb-4 flex-1 text-sm text-gray-500 dark:text-gray-400">{{ $description }}</p>
-        <button
-            class="flex w-full items-center justify-center rounded-lg bg-background-light py-2.5 text-sm font-bold text-[#0d131c] hover:bg-gray-200 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 transition-colors">
-            Detail Kegiatan
-        </button>
+        <a href="{{ route('detail-ekstrakurikuler') }}">
+            <button
+                class="flex w-full items-center justify-center rounded-lg bg-background-light py-2.5 text-sm font-bold text-[#0d131c] hover:bg-gray-200 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 transition-colors">
+                Detail Ekstra
+            </button>
+        </a>
     </div>
 </div>

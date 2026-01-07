@@ -47,6 +47,21 @@ class AuthController extends Controller
                     'title' => 'Login Gagal',
                     'message' => 'Terjadi kesalahan pada sistem. Silakan coba lagi nanti.',
                 ]);
+
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('home')->with('alert', [
+            'type' => 'success',
+            'title' => 'Logout Berhasil',
+            'message' => 'Anda telah berhasil logout.',
+        ]);
     }
 }

@@ -4,6 +4,10 @@
 
 @section('content')
 
+    @if (session()->has('alert'))
+        <x-alert type="{{ session('alert.type') }}" :title="session('alert.title')" :message="session('alert.message')" :show="true" />
+    @endif
+
     <body
         class="font-display bg-background-light dark:bg-background-dark text-[#0d131c] dark:text-white overflow-x-hidden transition-colors duration-200">
         <div class="relative flex min-h-screen w-full flex-col group/design-root">
@@ -17,7 +21,7 @@
                         <div
                             class="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-4 md:grid-cols-2 md:items-center md:px-10 lg:gap-20">
                             <!-- Text Content -->
-                            <div class="flex flex-col gap-6 text-left">
+                            <div class="flex flex-col gap-6 text-left" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-sine">
                                 <div
                                     class="inline-flex w-fit items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent dark:bg-accent/20">
                                     <span class="material-symbols-outlined text-[16px]">verified</span>
@@ -25,7 +29,7 @@
                                 </div>
                                 <h1
                                     class="text-4xl font-black leading-[1.1] tracking-tighter text-[#0d131c] dark:text-white md:text-5xl lg:text-6xl">
-                                    EkstraSMEA <br />
+                                    EkstraSMAKANZA <br />
                                     <span class="text-primary">Platform Pendaftaran</span> Ekstrakurikuler
                                 </h1>
                                 <p class="max-w-[540px] text-lg font-normal text-gray-600 dark:text-gray-400">
@@ -33,16 +37,18 @@
                                     Bergabunglah dengan komunitas yang tepat untuk masa depanmu.
                                 </p>
                                 <div class="flex flex-wrap gap-4 pt-2">
-                                    <x-button size="lg" icon="arrow_forward" class="gap-2" icon-position="right">
-                                        <a href="#">Mulai Daftar</a>
-                                    </x-button>
+                                    <a href="{{ route('daftar-ekstra') }}">
+                                        <x-button size="lg" icon="arrow_forward" class="gap-2" icon-position="right">
+                                            Mulai Daftar
+                                        </x-button>
+                                    </a>
                                     <x-button variant="outline" size="lg" class="gap-2" icon="play_circle">
                                         <a href="#">Lihat video</a>
                                     </x-button>
                                 </div>
                             </div>
                             <!-- Hero Image -->
-                            <div class="relative w-full">
+                            <div class="relative w-full" data-aos="fade-left" data-aos-duration="1000" data-aos-easing="ease-in-sine">
                                 <div
                                     class="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl shadow-primary/10 lg:aspect-square">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
@@ -82,7 +88,7 @@
                         </div>
                 </section>
                 <!-- Headline -->
-                <div class="w-full max-w-[1280px] px-4 pt-10 pb-4 md:px-10">
+                <div class="w-full max-w-[1280px] px-4 pt-10 pb-4 md:px-10" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-sine">
                     <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
                         <div>
                             <h2 class="text-3xl font-bold tracking-tight text-[#0d131c] dark:text-white">Ekstrakurikuler
@@ -91,7 +97,7 @@
                                 Wonosobo tahun ini</p>
                         </div>
                         <a class="group flex items-center gap-1 text-sm font-bold text-primary transition-colors hover:text-blue-700"
-                            href="#">
+                            href="{{ route('ekstrakurikuler') }}">
                             Lihat Semua
                             <span
                                 class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
