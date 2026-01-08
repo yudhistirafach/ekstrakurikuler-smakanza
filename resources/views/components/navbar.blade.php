@@ -20,7 +20,7 @@
                         href="{{ route('home') }}">Beranda</a>
                     <a class="text-sm font-medium {{ request()->is('ekstrakurikuler*') ? 'text-primary' : 'text-[#0d131c] hover:text-primary' }} {{ request()->is('ekstrakurikuler*') ? 'dark:text-primary' : 'dark:text-gray-300 dark:hover:text-primary' }} transition-colors"
                         href="{{ route('ekstrakurikuler') }}">Ekstrakurikuler</a>
-                    <a class="text-sm font-medium {{ request()->routeIs('prestasi') ? 'text-primary' : 'text-[#0d131c] hover:text-primary' }} {{ request()->routeIs('prestasi') ? 'dark:text-primary' : 'dark:text-gray-300 dark:hover:text-primary' }} transition-colors"
+                    <a class="text-sm font-medium {{ request()->is('prestasi*') ? 'text-primary' : 'text-[#0d131c] hover:text-primary' }} {{ request()->is('prestasi*') ? 'dark:text-primary' : 'dark:text-gray-300 dark:hover:text-primary' }} transition-colors"
                         href="{{ route('prestasi') }}">Prestasi</a>
                     <a class="text-sm font-medium {{ request()->routeIs('daftar-ekstra') ? 'text-primary' : 'text-[#0d131c] hover:text-primary' }} {{ request()->routeIs('daftar-ekstra') ? 'dark:text-primary' : 'dark:text-gray-300 dark:hover:text-primary' }} transition-colors"
                         href="{{ route('daftar-ekstra') }}">Daftar Ekstra</a>
@@ -65,7 +65,7 @@
                             href="{{ route('home') }}">Beranda</a>
                         <a class="text-sm font-medium {{ request()->is('ekstrakurikuler*') ? 'text-primary' : 'text-[#0d131c] hover:text-primary' }} {{ request()->is('ekstrakurikuler*') ? 'dark:text-primary' : 'dark:text-gray-300 dark:hover:text-primary' }} transition-colors py-2"
                             href="{{ route('ekstrakurikuler') }}">Ekstrakurikuler</a>
-                        <a class="text-sm font-medium {{ request()->routeIs('prestasi') ? 'text-primary' : 'text-[#0d131c] hover:text-primary' }} {{ request()->routeIs('prestasi') ? 'dark:text-primary' : 'dark:text-gray-300 dark:hover:text-primary' }} transition-colors py-2"
+                        <a class="text-sm font-medium {{ request()->is('prestasi*') ? 'text-primary' : 'text-[#0d131c] hover:text-primary' }} {{ request()->is('prestasi*') ? 'dark:text-primary' : 'dark:text-gray-300 dark:hover:text-primary' }} transition-colors py-2"
                             href="{{ route('prestasi') }}">Prestasi</a>
                         <a class="text-sm font-medium {{ request()->routeIs('daftar-ekstra') ? 'text-primary' : 'text-[#0d131c] hover:text-primary' }} {{ request()->routeIs('daftar-ekstra') ? 'dark:text-primary' : 'dark:text-gray-300 dark:hover:text-primary' }} transition-colors py-2"
                             href="{{ route('daftar-ekstra') }}">Daftar Ekstra</a>

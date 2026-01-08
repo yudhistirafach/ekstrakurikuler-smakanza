@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Str;
 
 class UserSeeder extends Seeder
 {
@@ -16,6 +17,7 @@ class UserSeeder extends Seeder
         // Admin
         User::create([
             'name' => 'Admin Utama',
+            'slug' => Str::slug('Admin Utama'),
             'email' => 'admin@sekolah.com',
             'password' => bcrypt('password123'),
             'nis' => null,
@@ -27,6 +29,7 @@ class UserSeeder extends Seeder
         // Student
         User::create([
             'name' => 'Budi Santoso',
+            'slug' => Str::slug('Budi Santoso'),
             'email' => 'budi.santoso@student.com',
             'password' => bcrypt('password123'),
             'nis' => '2024001',

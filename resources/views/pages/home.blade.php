@@ -105,7 +105,7 @@
                     </div>
                 </div>
                 <!-- Showcase Grid -->
-                <x-showcase-grid />
+                <x-showcase-grid :extracurriculars="$extracurriculars" />
                 <!-- CTA Section -->
                 <x-cta-section />
             </main>
