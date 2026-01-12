@@ -7,6 +7,7 @@
     'winner' => null, // Ahmad Rizky
     'class' => null, // XII RPL 1
     'date' => null,
+    'slug',
 ])
 
 <article
@@ -68,7 +69,7 @@
         <div class="mt-5 pt-4 border-t border-gray-100 dark:border-gray-700">
             <button
                 class="w-full py-2 px-4 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white text-sm font-semibold transition-colors">
-                <a href="{{ route('detail-prestasi') }}" class="flex items-center justify-center gap-2">
+                <a href="{{ route('prestasi.detail', $slug) }}" class="flex items-center justify-center gap-2">
                     Lihat Detail
                     <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                 </a>

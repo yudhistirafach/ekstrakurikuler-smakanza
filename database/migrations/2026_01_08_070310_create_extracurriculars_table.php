@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('extracurriculars', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->unsignedBigInteger('coach_id')->nullable();
+            $table->foreignId('category_id')->constrained()->onDelete('no action');
+            $table->foreignId('coach_id')->constrained()->onDelete('no action');
             $table->string('name', 100);
             $table->string('slug')->unique();
-            $table->string('short_description', 255)->nullable();
+            $table->string('excerpt', 255)->nullable();
             $table->text('description')->nullable();
             $table->integer('quota')->default(0);
             $table->enum('day', ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'])->nullable();
@@ -29,9 +29,6 @@ return new class extends Migration
             $table->string('banner_url')->nullable();
             $table->text('requirements')->nullable();
             $table->timestamps();
-
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
-            $table->foreign('coach_id')->references('id')->on('coaches')->onDelete('set null');
         });
     }
 

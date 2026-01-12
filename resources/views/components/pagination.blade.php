@@ -1,49 +1,73 @@
 @props([
-    'current' => 1,   // halaman aktif
-    'total' => 1,     // total halaman
+    'current' => 1,
+    'total' => 1,
+    'maxVisible' => 5, // maksimal tombol halaman yang ditampilkan
 ])
 
+@php
+    $current = (int) $current;
+    $total = (int) $total;
+    $maxVisible = min($maxVisible, $total);
+
+    // Pastikan current valid
+    $current = max(1, min($current, $total));
+
+    // Hitung rentang halaman yang ditampilkan
+    $start = 1;
+    $end = $total;
+
+    if ($total > $maxVisible) {
+        $half = floor($maxVisible / 2);
+        $start = max(1, $current - $half);
+        $end = min($total, $start + $maxVisible - 1);
+
+        // Adjust jika di ujung
+        if ($end - $start + 1 < $maxVisible) {
+            $start = max(1, $end - $maxVisible + 1);
+        }
+    }
+
+    $url = fn ($page) => request()->fullUrlWithQuery(['page' => $page]);
+@endphp
+
 @if ($total > 1)
-<div class="mt-12 flex justify-center">
-    <nav aria-label="Pagination" class="flex items-center gap-2">
+    <div class="mt-12 flex justify-center">
+        <nav class="flex items-center gap-2">
 
-        {{-- Previous --}}
-        <button
-            class="size-10 flex items-center justify-center rounded-lg border
-                {{ $current === 1
-                    ? 'border-gray-200 text-gray-300 cursor-not-allowed dark:border-gray-700'
-                    : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700'
-                }}">
-            <span class="material-symbols-outlined">chevron_left</span>
-        </button>
+            {{-- Previous --}}
+            <a href="{{ $current > 1 ? $url($current - 1) : '#' }}"
+                class="{{ $current <= 1 
+                    ? 'pointer-events-none opacity-50' 
+                    : 'text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700' }} 
+                    size-10 flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 transition-colors">
+                <span class="material-symbols-outlined text-xl">chevron_left</span>
+            </a>
 
-        {{-- Page Numbers --}}
-        @for ($page = 1; $page <= $total; $page++)
-            @if ($page == $current)
-                <button
-                    class="size-10 flex items-center justify-center rounded-lg bg-primary text-white font-medium">
-                    {{ $page }}
-                </button>
-            @else
-                <button
-                    class="size-10 flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700
-                    bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200
-                    hover:bg-gray-50 dark:hover:bg-gray-700 font-medium">
-                    {{ $page }}
-                </button>
-            @endif
-        @endfor
+            {{-- Page Numbers --}}
+            @for ($i = $start; $i <= $end; $i++)
+                @if ($i == $current)
+                    <span class="size-10 flex items-center justify-center rounded-lg bg-blue-600 text-white font-medium">
+                        {{ $i }}
+                    </span>
+                @else
+                    <a href="{{ $url($i) }}"
+                        class="size-10 flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700
+                               bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium
+                               hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                        {{ $i }}
+                    </a>
+                @endif
+            @endfor
 
-        {{-- Next --}}
-        <button
-            class="size-10 flex items-center justify-center rounded-lg border
-                {{ $current === $total
-                    ? 'border-gray-200 text-gray-300 cursor-not-allowed dark:border-gray-700'
-                    : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700'
-                }}">
-            <span class="material-symbols-outlined">chevron_right</span>
-        </button>
+            {{-- Next --}}
+            <a href="{{ $current < $total ? $url($current + 1) : '#' }}"
+                class="{{ $current >= $total 
+                    ? 'pointer-events-none opacity-50' 
+                    : 'text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700' }} 
+                    size-10 flex items-center justify-center rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 transition-colors">
+                <span class="material-symbols-outlined text-xl">chevron_right</span>
+            </a>
 
-    </nav>
-</div>
+        </nav>
+    </div>
 @endif

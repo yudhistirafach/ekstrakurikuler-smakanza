@@ -17,9 +17,6 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('nis') ->unique()->nullable();
-            $table->string('nisn')->unique()->nullable();
-            $table->enum('gender', ['male', 'female'])->nullable();
             $table->enum('role', ['admin', 'student'])->default('student');
             $table->rememberToken();
             $table->timestamps();

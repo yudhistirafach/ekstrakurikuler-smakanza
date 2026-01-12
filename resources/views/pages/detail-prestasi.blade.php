@@ -17,29 +17,23 @@
                             </div>
                             <div class="bg-cover bg-center h-[300px] md:h-[400px] w-full transform transition-transform duration-700 hover:scale-105"
                                 data-alt="Students holding a trophy and robot on a stage with bright lights"
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBiDAAXDe3XbxigNeW_DYZ2WV1Tl5ZqAyyOa0wosFDNAoPTEyr3AQiwy-xGEcuT9NLlSCZ3RsDVEZyTtQzRnTeRU7R4unixN-zqFG259Sk15GqUhzH_L04mFsXZTGHVyn5cjJobYYeuqNcYzNK5Sk_VUhjF2EpiEXOe-X9C-WaEMDfpfINz0a3DcR2lQHqkzr2IW7FNIjKu85gF1kVc41_8HAb8Y8b3Ht5RrmKuXtsCKAsImdZZmkHH2kEGlraq8YVVYWaOcQoAkVBv");'>
+                                style="background-image: url('{{ $achievement->image_url ?: 'https://placehold.co/600x400/e7ecf4/64748b?text=No+Image' }}')">
                             </div>
                             <div class="absolute bottom-0 left-0 z-20 w-full p-6 md:p-10">
                                 <div class="flex flex-col gap-3">
                                     <div class="flex items-center gap-3">
                                         <span
-                                            class="inline-flex items-center gap-1 rounded-full bg-secondary/20 px-3 py-1 text-xs font-bold text-secondary backdrop-blur-md border border-secondary/30">
-                                            <span class="material-symbols-outlined text-[16px] fill-1">emoji_events</span>
-                                            Prestasi Gemilang
-                                        </span>
-                                        <span
                                             class="inline-flex items-center gap-1 rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-md">
                                             <span class="material-symbols-outlined text-[16px]">calendar_today</span>
-                                            12 Nov 2023
+                                            {{ \Carbon\Carbon::parse($achievement->event_date)->isoFormat('DD MMMM YYYY') }}
                                         </span>
                                     </div>
                                     <h1
                                         class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight drop-shadow-sm">
-                                        Juara 1 Lomba Robotic Nasional 2023
+                                        {{ $achievement->title }}
                                     </h1>
                                     <p class="text-gray-200 text-sm md:text-base max-w-2xl line-clamp-2">
-                                        Tim Robotik SMKN 1 Wonosobo berhasil meraih medali emas dalam ajang Kompetisi
-                                        Robotik Nasional di Jakarta, mengalahkan 50 tim lainnya.
+                                        {{ $achievement->excerpt }}
                                     </p>
                                 </div>
                             </div>
@@ -55,7 +49,8 @@
                                     </div>
                                     <p class="text-[#49699c] dark:text-gray-300 text-sm font-medium">Tingkat</p>
                                 </div>
-                                <p class="text-[#0d131c] dark:text-white text-xl font-bold">Nasional</p>
+                                <p class="text-[#0d131c] dark:text-white text-xl font-bold">
+                                    {{ ucwords($achievement->level) }}</p>
                             </div>
                             <div
                                 class="flex flex-col gap-1 rounded-xl bg-white dark:bg-gray-800 p-5 shadow-sm border border-[#e7ecf4] dark:border-gray-700 transition-all hover:shadow-md hover:border-primary/20 group">
@@ -66,7 +61,7 @@
                                     </div>
                                     <p class="text-[#49699c] dark:text-gray-300 text-sm font-medium">Tahun</p>
                                 </div>
-                                <p class="text-[#0d131c] dark:text-white text-xl font-bold">2023</p>
+                                <p class="text-[#0d131c] dark:text-white text-xl font-bold">{{ $achievement->year }}</p>
                             </div>
                             <div
                                 class="flex flex-col gap-1 rounded-xl bg-white dark:bg-gray-800 p-5 shadow-sm border border-[#e7ecf4] dark:border-gray-700 transition-all hover:shadow-md hover:border-primary/20 group">
@@ -77,7 +72,8 @@
                                     </div>
                                     <p class="text-[#49699c] dark:text-gray-300 text-sm font-medium">Peringkat</p>
                                 </div>
-                                <p class="text-[#0d131c] dark:text-white text-xl font-bold text-secondary">Juara 1 (Emas)
+                                <p class="text-[#0d131c] dark:text-white text-xl font-bold text-secondary">
+                                    {{ $achievement->rank }}
                                 </p>
                             </div>
                             <div
@@ -89,7 +85,8 @@
                                     </div>
                                     <p class="text-[#49699c] dark:text-gray-300 text-sm font-medium">Ekstrakurikuler</p>
                                 </div>
-                                <p class="text-[#0d131c] dark:text-white text-xl font-bold">Robotik</p>
+                                <p class="text-[#0d131c] dark:text-white text-xl font-bold">
+                                    {{ $achievement->extracurricular->name }}</p>
                             </div>
                         </div>
                         <!-- Main Content Split -->
@@ -107,25 +104,8 @@
                                         </h3>
                                         <div
                                             class="prose prose-blue max-w-none text-[#49699c] dark:text-gray-300 leading-relaxed">
-                                            <p class="mb-4">
-                                                Kompetisi Robotik Nasional 2023 merupakan ajang bergengsi yang mempertemukan
-                                                talenta-talenta muda terbaik dari seluruh Indonesia di bidang teknologi dan
-                                                rekayasa. Tim dari SMKN 1 Wonosobo mengirimkan perwakilan terbaiknya untuk
-                                                kategori <strong>Autonomous Rescue Robot</strong>.
-                                            </p>
-                                            <p class="mb-4">
-                                                Perjalanan menuju kemenangan tidaklah mudah. Tim telah melakukan persiapan
-                                                intensif selama 6 bulan, mulai dari perancangan mekanik, pemrograman sistem
-                                                kendali, hingga uji coba lapangan yang berulang kali. Robot yang
-                                                dikembangkan, diberi nama <em>"SMEA-Bot V1"</em>, memiliki kemampuan
-                                                navigasi mandiri yang presisi dan kecepatan respons tinggi dalam mendeteksi
-                                                objek.
-                                            </p>
                                             <p>
-                                                Pada babak final, SMEA-Bot V1 berhasil menyelesaikan misi penyelamatan dalam
-                                                waktu tercepat 2 menit 15 detik tanpa penalti, mengungguli perwakilan dari
-                                                provinsi lain. Prestasi ini membuktikan bahwa siswa SMK memiliki kompetensi
-                                                global yang siap bersaing di era Industri 4.0.
+                                                {{ $achievement->description }}
                                             </p>
                                         </div>
                                     </section>
@@ -138,60 +118,25 @@
                                         </div>
                                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                             <!-- Student Card 1 -->
-                                            <div
-                                                class="flex items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded-xl border border-[#e7ecf4] dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
-                                                <div class="relative">
-                                                    <div class="size-14 rounded-full bg-cover bg-center ring-2 ring-gray-100"
-                                                        data-alt="Student Portrait"
-                                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAFtJga7IeeG2Ubd-5d7ZMNXUqG9ysN8U9Af-E6Qcb15JK-Fdnp3PFbQNxhEQ44jvuEjD4qapfQ6xiN8Nlc_S0SDwFZJNygNhHRkM0Za7LdsNMgzJkArM_SxEHE2PUMH20xbezUpVpsQ4QDo2ibkbWLU4WEZGIPeVY0IECYkf6m9O6Lp5CE2CRdssOGvwxOw2IDjwT5jYeYQ39MCC5e0xzb_jtq5bZIs-5c8xdf3fLJTmnfux4ltyo_4GPqn-WtL81Tbbw_2hwp7LMo");'>
+                                            @foreach ($achievement->students as $student)
+                                                <div
+                                                    class="flex items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded-xl border border-[#e7ecf4] dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+                                                    <div class="relative">
+                                                        <div class="size-14 rounded-full bg-cover bg-center ring-2 ring-gray-100"
+                                                            data-alt="Student Portrait"
+                                                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAFtJga7IeeG2Ubd-5d7ZMNXUqG9ysN8U9Af-E6Qcb15JK-Fdnp3PFbQNxhEQ44jvuEjD4qapfQ6xiN8Nlc_S0SDwFZJNygNhHRkM0Za7LdsNMgzJkArM_SxEHE2PUMH20xbezUpVpsQ4QDo2ibkbWLU4WEZGIPeVY0IECYkf6m9O6Lp5CE2CRdssOGvwxOw2IDjwT5jYeYQ39MCC5e0xzb_jtq5bZIs-5c8xdf3fLJTmnfux4ltyo_4GPqn-WtL81Tbbw_2hwp7LMo");'>
+                                                        </div>
                                                     </div>
-                                                    <div
-                                                        class="absolute -bottom-1 -right-1 bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border border-white">
-                                                        Ketua</div>
-                                                </div>
-                                                <div>
-                                                    <p class="text-[#0d131c] dark:text-white font-bold text-sm">Dimas Aditya
-                                                    </p>
-                                                    <p class="text-[#49699c] dark:text-gray-300 text-xs">XII Mekatronika 1
-                                                    </p>
-                                                    <p class="text-[#49699c] dark:text-gray-300 text-xs mt-1">Programmer</p>
-                                                </div>
-                                            </div>
-                                            <!-- Student Card 2 -->
-                                            <div
-                                                class="flex items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded-xl border border-[#e7ecf4] dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
-                                                <div class="relative">
-                                                    <div class="size-14 rounded-full bg-cover bg-center ring-2 ring-gray-100"
-                                                        data-alt="Student Portrait"
-                                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDwZMzDqGFoM23dlQjr5bs6p3_zsOzYorD_MrF6FpmRB_IR7Sq273dlhaYnD_pwX8rvFlg9mqIr8Yv1B6rDxe9dnPYMFNx8rridmd0htMVplmI3plTjK5AVd8NynjaeFfT831jEHgpU7VKoZ93w-4t4ijlSKTgPqQZW-zJn39VukBwH5MEk5GUl30lqzmWLplFPRYzaIp5fyy4bVxk1x447JRTZcjKCTZoONCntkVqDdYSOQrfCoX4331w4MOGGAW0hGgP5KP6-GHkG");'>
+                                                    <div>p
+                                                        <p class="text-[#0d131c] dark:text-white font-bold text-sm">
+                                                            {{ $student->fullname }}
+                                                        </p>
+                                                        <p class="text-[#49699c] dark:text-gray-300 text-xs">
+                                                            {{ $student->class }}
+                                                        </p>
                                                     </div>
                                                 </div>
-                                                <div>
-                                                    <p class="text-[#0d131c] dark:text-white font-bold text-sm">Siti
-                                                        Nurhaliza</p>
-                                                    <p class="text-[#49699c] dark:text-gray-300 text-xs">XI TKJ 2</p>
-                                                    <p class="text-[#49699c] dark:text-gray-300 text-xs mt-1">Mechanic
-                                                        Design</p>
-                                                </div>
-                                            </div>
-                                            <!-- Student Card 3 -->
-                                            <div
-                                                class="flex items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded-xl border border-[#e7ecf4] dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
-                                                <div class="relative">
-                                                    <div class="size-14 rounded-full bg-cover bg-center ring-2 ring-gray-100"
-                                                        data-alt="Student Portrait"
-                                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAGGn0YWrKJqj-9-61mRom3SROHMNKrUKKuwuVp2rgQ0hG5fE4RaAduPpr5_yjAceQqrXP4_U1DE_AkvHtR86-tW32OUS0O2J5vs9tFm9eJDIezEzUTdNwpYWTKjtF6pAp3QNNWUH86MyzPkkyvxMOxDj9UPs-dD7mwGLr-K2MR0eOlGTfbpI6Pg1M3G81k0ppBlhzUQa1IBaJgg1GkVLD2msdVuzvnUojSbWuGgHTWkz2gCHd86XShUXKdinm7PSPSqAChp6JFVxIH");'>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <p class="text-[#0d131c] dark:text-white font-bold text-sm">Rian Saputra
-                                                    </p>
-                                                    <p class="text-[#49699c] dark:text-gray-300 text-xs">XI Mekatronika 1
-                                                    </p>
-                                                    <p class="text-[#49699c] dark:text-gray-300 text-xs mt-1">Electronics
-                                                    </p>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </section>
                                     <!-- Pembina Section -->
@@ -281,7 +226,7 @@
                                         <h4 class="font-bold mb-2 relative z-10">Ingin berprestasi?</h4>
                                         <p class="text-white/80 text-sm mb-4 relative z-10">Gabung dengan ekstrakurikuler
                                             Robotik dan kembangkan bakatmu.</p>
-                                        <a href="{{ route('ekstrakurikuler.detail') }}">
+                                        <a href="#">
 
                                             <button
                                                 class="bg-white text-primary text-sm font-bold py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors relative z-10">

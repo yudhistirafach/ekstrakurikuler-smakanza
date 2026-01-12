@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('activity_galeries', function (Blueprint $table) {
+        Schema::create('achievement_galleries', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('extracurricular_id');
+            $table->foreignId('achievement_id')->constrained()->onDelete('no action');
             $table->string('image_url');
-            $table->string('image_alt');
+            $table->string('image_alt')->nullable();
             $table->timestamps();
-
-            $table->foreign('extracurricular_id')->references('id')->on('extracurriculars')->onDelete('cascade');
         });
     }
 
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('activity_galeries');
+        Schema::dropIfExists('achievement_galleries');
     }
 };

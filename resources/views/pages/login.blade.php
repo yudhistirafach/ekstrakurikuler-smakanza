@@ -93,11 +93,6 @@
                             </button>
                         </div>
                     </form>
-                    <p class="mt-8 text-center text-sm text-slate-500">
-                        Don't have an account?
-                        <a class="font-semibold text-primary hover:text-primary-hover hover:underline"
-                            href="#">Register</a>
-                    </p>
                 </div>
             </div>
         </div>

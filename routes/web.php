@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ExtracurricularsController;
 use App\Http\Controllers\HomeController;
@@ -8,14 +9,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/ekstrakurikuler', [ExtracurricularsController::class, 'index'])->name('ekstrakurikuler');
-Route::get('/prestasi', function () {
-    return view('pages.prestasi');
-})->name('prestasi');
 Route::get('/ekstrakurikuler/{slug}', [ExtracurricularsController::class, 'show'])->name('ekstrakurikuler.detail');
 
-Route::get('/prestasi/detail', function () {
-    return view('pages.detail-prestasi');
-})->name('detail-prestasi');
+Route::get('/prestasi', [AchievementController::class, 'index'])->name('prestasi');
+Route::get('/prestasi/{slug}', [AchievementController::class, 'show'])->name('prestasi.detail');
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');

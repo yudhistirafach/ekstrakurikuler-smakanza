@@ -22,11 +22,13 @@
                         Menu Utama</h4>
                     <ul class="flex flex-col gap-3 text-sm text-gray-500 dark:text-gray-400">
                         <li><a class="hover:text-primary transition-colors" href="{{ route('home') }}">Beranda</a></li>
-                        <li><a class="hover:text-primary transition-colors" href="{{ route('ekstrakurikuler') }}">Ekstrakurikuler</a>
+                        <li><a class="hover:text-primary transition-colors"
+                                href="{{ route('ekstrakurikuler') }}">Ekstrakurikuler</a>
                         </li>
                         <li><a class="hover:text-primary transition-colors" href="{{ route('prestasi') }}">Prestasi</a>
                         </li>
-                        <li><a class="hover:text-primary transition-colors" href="{{ route('daftar-ekstra') }}">Daftar Ekstra</a>
+                        <li><a class="hover:text-primary transition-colors" href="{{ route('daftar-ekstra') }}">Daftar
+                                Ekstra</a>
                         </li>
                     </ul>
                 </div>
@@ -36,24 +38,26 @@
                         Kontak Kami</h4>
                     <ul class="flex flex-col gap-4 text-sm text-gray-500 dark:text-gray-400">
                         <li class="flex items-start gap-3">
-                            <span
-                                class="material-symbols-outlined text-primary mt-0.5 text-[18px]">location_on</span>
+                            <span class="material-symbols-outlined text-primary mt-0.5 text-[18px]">location_on</span>
                             <span>Jl. Bhayangkara No. 12, Wonosobo, Jawa Tengah</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-primary text-[18px]">call</span>
-                            <span>(0286) 321xxx</span>
+                            <span>(0286) 321219</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-primary text-[18px]">mail</span>
-                            <span>osis@smkn1wonosobo.sch.id</span>
+                            <span>
+                                info@smkn1-wnb.sch.id
+                            </span>
                         </li>
                     </ul>
                 </div>
             </div>
             <div
                 class="flex flex-col items-center justify-between gap-6 border-t border-[#e7ecf4] pt-8 dark:border-gray-800 sm:flex-row">
-                <p class="text-sm text-gray-400">© {{ now()->format('Y') }} SMK Negeri 1 Wonosobo. All rights reserved.</p>
+                <p class="text-sm text-gray-400">© {{ now()->format('Y') }} SMK Negeri 1 Wonosobo. All rights reserved.
+                </p>
                 <div class="flex gap-4">
                     <a class="flex h-8 w-8 items-center justify-center rounded-full bg-[#f8f9fc] text-gray-500 hover:bg-primary hover:text-white transition-all dark:bg-gray-800 dark:hover:bg-primary"
                         href="https://smkn1-wnb.sch.id/" target="_blank" rel="noopener noreferrer">

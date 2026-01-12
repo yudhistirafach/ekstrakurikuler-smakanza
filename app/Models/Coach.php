@@ -20,4 +20,8 @@ class Coach extends Model
     public function extracurriculars() {
         return $this->hasMany(Extracurricular::class);
     }
+
+    public function achievements() {
+        return $this->hasMany(Achievement::class);
+    }
 }
